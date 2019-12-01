@@ -1,0 +1,13 @@
+EBSD Directions
+
+Quotes from code I wrote a few years ago on this:
+
+"""
+    x = np.sin(np.deg2rad(theta)) # this configuration has the x axis oriented to the north  (in OIM A1 axis)
+    y = -np.cos(np.deg2rad(theta)) # (in OIM A2 axis)This has a negative sign because our SEM is oriented left to right. I may need to change this if the Euler angles dont represent the orientation corrected 
+    z = 0.0 #(in OIM A3 axis)
+"""
+
+A1- X North-South Axis X vector positive in the North 
+A2- Y East-West Axis This is positive in the West direction due to how our configuration of the EBSD is set up
+A3- Z axis is the up down axis. 

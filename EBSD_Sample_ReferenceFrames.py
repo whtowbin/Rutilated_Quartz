@@ -144,16 +144,17 @@ def Crystal2Sample(uvw, phi1, Phi, phi2):
     U_O = Rz(np.deg2rad(phi2)) * Rx(np.deg2rad(Phi)) * Rz(np.deg2rad(phi1))
 
     Structmat = CalcStructureMatrix(
-        a=1,
-        b=1,
-        c=1,  # right now its for the cubic system. I need to determine if we need vectors in the basis of for the unit cell of its just the raw angle
+        a= 4.9,
+        b= 4.9,
+        c=5.4,  # right now its for the cubic system. I need to determine if we need vectors in the basis of for the unit cell of its just the raw angle
         alpha=np.deg2rad(90.0),  # olivine a=4.78,b=10.25,c=6.3
         beta=np.deg2rad(90.0),
-        gamma=np.deg2rad(120.0),
+        #gamma=np.deg2rad(90),
+        gamma=np.deg2rad(120),
     )
 
-    Sample_xyz= uvw * Structmat.T * U_O 
-    #Sample_xyz = uvw * U_O # commented out to remove struct matrix
+    #Sample_xyz= uvw * Structmat.T * U_O 
+    Sample_xyz = uvw * U_O # commented out to remove struct matrix
 
     return Sample_xyz
 
@@ -169,11 +170,12 @@ def Sample2Crystal(xyz, phi1, Phi, phi2):
         c=5.4,  # right now its for the cubic system. I need to determine if we need vectors in the basis of for the unit cell of its just the raw angle
         alpha=np.deg2rad(90.0),  # olivine a=4.78,b=10.25,c=6.3
         beta=np.deg2rad(90.0),
-        gamma=np.deg2rad(120.0),
+        #gamma=np.deg2rad(90),
+        gamma=np.deg2rad(120),
     )
 
-    #Sample_xyz = uvw * U_O.T * #(Structmat.T).I  #commented out to remove structure matrix
-    Sample_xyz = uvw * U_O.T * (Structmat.T).I  
+    Sample_xyz = uvw * U_O.T  #(Structmat.T).I  #commented out to remove structure matrix
+    #Sample_xyz = uvw * U_O.T * (Structmat.T).I  
 
     return Sample_xyz
 
