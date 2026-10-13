@@ -1,0 +1,16 @@
+[project]
+name = "rutilated-quartz"
+version = "0.1.0"
+description = "Orientation of rutile needles in quartz from confocal and EBSD data (with N. Tailby, AMNH)"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "matplotlib",
+    "mplstereonet",
+    "numpy",
+    "pandas",
+    "pyjanitor",
+]
+
+[tool.uv]
+package = false
